@@ -1,7 +1,4 @@
 import { useRef, useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
 import valentineCat from "./assets/ValentineCat.jpg";
 import screamingCat from "./assets/screamingCat.gif";
@@ -58,13 +55,13 @@ function App() {
         style={{ backgroundImage: "url(" + valentineCat + ")" }}
       ></div>
       <div className="flex flex-row gap-32 ">
-        <motion.button
+        <button
           onClick={() => changeImage()}
           className="h-32 w-32 rounded-3xl bg-[#0197F6] shadow-2xl shadow-[#0197F6]"
         >
           Daaa
-        </motion.button>
-        <motion.button
+        </button>
+        <button
           transition={{ ease: "easeOut", duration: 2 }}
           ref={myRef}
           id="my-element"
@@ -73,7 +70,7 @@ function App() {
           className="h-32 w-32 rounded-3xl bg-[#D7263D] shadow-2xl shadow-[#D7263D] duration-300"
         >
           nu
-        </motion.button>
+        </button>
       </div>
     </div>
   );
