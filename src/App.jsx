@@ -1,9 +1,5 @@
 import { useRef, useState, useEffect } from "react";
 import "./App.css";
-// import valentineCat from "./assets/ValentineCat.jpg";
-// import screamingCat from "./assets/screamingCat.gif";
-// import happyCat from "./assets/HappyCat.gif";
-// import hearts from "./assets/hearts.jpg";
 
 function App() {
   let contor = 0;
@@ -11,27 +7,52 @@ function App() {
   const myRef = useRef(null);
   const imgRef = useRef(null);
   useEffect(() => {
-    if (myRef.current) console.log(myRef.current);
-    if (imgRef.current) console.log(imgRef.current);
-    if (bgRef.current) console.log(bgRef.current);
+    screenRandomNumber();
   }, []);
 
   let { xAxis, yAxis } = Math.random() * 500;
 
+  function screenRandomNumber() {
+    let number =
+      Math.floor(Math.random()) * (Math.round(Math.random()) * 2 - 1);
+    while (number < -10 || number > 60) {
+      console.log(number);
+      number = Math.floor(Math.random()) * (Math.round(Math.random()) * 2 - 1);
+    }
+    return number;
+  }
+
   function changeCoordinates() {
     let nonoButton = myRef.current;
-    xAxis = Math.floor(Math.random() * 38);
+
+    xAxis = Math.floor(Math.random() * 100);
     yAxis = Math.floor(
-      Math.random() * 10 * (Math.round(Math.random()) * 2 - 1)
+      Math.random() * 100 * (Math.round(Math.random()) * 2 - 1)
     );
 
+    while (xAxis < -50 || xAxis > 30) {
+      xAxis = Math.floor(
+        Math.random() * 100 * (Math.round(Math.random()) * 2 - 1)
+      );
+    }
+
+    while (yAxis < -40 || yAxis > 12) {
+      yAxis = Math.floor(
+        Math.random() * 100 * (Math.round(Math.random()) * 2 - 1)
+      );
+    }
+    console.log(xAxis);
+    console.log(yAxis);
     nonoButton.style.transform =
       "translateX(" + xAxis + "vw) translateY(" + yAxis + "vh)";
     contor++;
     if (contor === 10) {
       let img = imgRef.current;
+      let bgImg = bgRef.current;
       img.style.backgroundImage =
         "url(https://media.tenor.com/qNFxd4_OaUEAAAAM/cat-scream.gif)";
+      bgImg.style.backgroundImage =
+        "url(https://images.unsplash.com/photo-1496034663057-6245f11be793?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)";
       contor++;
     }
   }
@@ -44,12 +65,13 @@ function App() {
     img.style.backgroundImage =
       "url(https://media.tenor.com/kqWk7ezzSEYAAAAM/hai.gif)";
     nonoButton.style.transform = "translateX(0) translateY(0)";
-    bgImg.backgroundImage = "url(" + +")";
+    bgImg.style.backgroundImage =
+      "url(https://images.unsplash.com/photo-1499233983070-99a5f004e720?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)";
   }
   return (
     <div
       ref={bgRef}
-      className="w-screen h-screen flex flex-col justify-center items-center gap-32 bg-slate-900"
+      className="w-screen h-screen bg-center bg-cover bg-no-repeat flex flex-col justify-center items-center gap-32 bg-slate-900"
     >
       <div
         ref={imgRef}
@@ -72,7 +94,7 @@ function App() {
           id="my-element"
           onMouseOver={() => changeCoordinates()}
           // onMouseEnter={() => changeCoordonates()}
-          className="h-32 w-32 rounded-3xl bg-[#D7263D] shadow-2xl shadow-[#D7263D] duration-300"
+          className="h-32 w-32 rounded-3xl bg-[#D7263D] shadow-2xl shadow-[#D7263D] duration-100"
         >
           nu
         </button>
