@@ -1,10 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import "./App.css";
-import valentineCat from "./assets/ValentineCat.jpg";
-import screamingCat from "./assets/screamingCat.gif";
-import happyCat from "./assets/HappyCat.gif";
-import hearts from "./assets/hearts.jpg";
-console.log(valentineCat);
+// import valentineCat from "./assets/ValentineCat.jpg";
+// import screamingCat from "./assets/screamingCat.gif";
+// import happyCat from "./assets/HappyCat.gif";
+// import hearts from "./assets/hearts.jpg";
 
 function App() {
   let contor = 0;
@@ -31,18 +30,21 @@ function App() {
     contor++;
     if (contor === 10) {
       let img = imgRef.current;
-      img.style.backgroundImage = "url(" + screamingCat + ")";
+      img.style.backgroundImage =
+        "url(https://media.tenor.com/qNFxd4_OaUEAAAAM/cat-scream.gif)";
       contor++;
     }
   }
 
   function changeImage() {
+    contor = 0;
     let bgImg = bgRef.current;
     let nonoButton = myRef.current;
     let img = imgRef.current;
-    img.style.backgroundImage = "url(" + happyCat + ")";
+    img.style.backgroundImage =
+      "url(https://media.tenor.com/kqWk7ezzSEYAAAAM/hai.gif)";
     nonoButton.style.transform = "translateX(0) translateY(0)";
-    bgImg.backgroundImage = "url(" + hearts + ")";
+    bgImg.backgroundImage = "url(" + +")";
   }
   return (
     <div
@@ -52,7 +54,10 @@ function App() {
       <div
         ref={imgRef}
         className="h-[40vh] w-[20vw]  bg-center bg-contain bg-no-repeat"
-        style={{ backgroundImage: "url(" + valentineCat + ")" }}
+        style={{
+          backgroundImage:
+            "url(https://i.pinimg.com/474x/87/05/70/870570c7195ea8f9e4fabdfd00ea42a1.jpg)",
+        }}
       ></div>
       <div className="flex flex-row gap-32 ">
         <button
