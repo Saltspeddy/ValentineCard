@@ -36,7 +36,7 @@ function App() {
       );
     }
 
-    while (yAxis < -40 || yAxis > 12) {
+    while (yAxis < -60 || yAxis > 10) {
       yAxis = Math.floor(
         Math.random() * 100 * (Math.round(Math.random()) * 2 - 1)
       );
